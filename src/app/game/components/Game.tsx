@@ -126,7 +126,7 @@ export default function Game({
             className="tw-btn bg-secondary text-white shadow-md hover:bg-secondary-hover p-3 text-lg"
           >
             ออกจากเกม
-          </button>
+          </button> 
         </div>
       </div>
     </div>
