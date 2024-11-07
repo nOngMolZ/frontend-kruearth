@@ -61,7 +61,7 @@ const NavRail: React.FC = () => {
       },
       {
         name: "ดาวน์โหลดคู่มือ",
-        path: "https://s28.q4cdn.com/392171258/files/doc_downloads/test.pdf",
+        path: "https://www.google.co.th",
         icon: <FileText />,
         target: "_blank",
         isAdmin: true,
