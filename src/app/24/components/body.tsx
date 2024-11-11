@@ -373,11 +373,13 @@ const Body: React.FC<BodyProps> = ({ level, IsEnd, setIsEnd }) => {
 					/>
 					{message && <p className="text-center mb-4">{message}</p>}
 					<Button
-						onClick={checkAnswer}
-						className="w-full bg-accent hover:bg-accent-hover text-white mb-4"
-					>
-						ตอบ
-					</Button>
+	onClick={checkAnswer}
+	className="w-full bg-orange-400 hover:bg-orange-500 text-white p-2 rounded"
+>
+	ตอบ
+</Button>
+
+
 				</CardContent>
 				<CardFooter className="flex justify-between">
 					<Button
