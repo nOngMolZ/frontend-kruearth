@@ -52,31 +52,68 @@ const generateExpression = (
 	level: "easy" | "medium" | "hard"
 ) => {
 	const expressions: string[] = [];
-	// สร้างสมการพื้นฐาน
-	for (let i = 0; i < 3; i++) {
-		expressions.push(
-			`${numbers[0]} ${getRandomOperator(level)} ${
-				numbers[1]
-			} ${getRandomOperator(level)} ${numbers[2]} ${getRandomOperator(level)} ${
-				numbers[3]
-			}`,
-			`(${numbers[0]} ${getRandomOperator(level)} ${
-				numbers[1]
-			}) ${getRandomOperator(level)} (${numbers[2]} ${getRandomOperator(
-				level
-			)} ${numbers[3]})`,
-			`(${numbers[0]} ${getRandomOperator(level)} ${
-				numbers[1]
-			} ${getRandomOperator(level)} ${numbers[2]}) ${getRandomOperator(
-				level
-			)} ${numbers[3]}`,
-			`${numbers[0]} ${getRandomOperator(level)} (${
-				numbers[1]
-			} ${getRandomOperator(level)} ${numbers[2]} ${getRandomOperator(level)} ${
-				numbers[3]
-			})`
-		);
+
+	// สร้างสมการพื้นฐาน (3 หรือ 4 รอบ ตาม level)
+
+	// แก้ไขส่วนนี้เพื่อใช้ตัวเลขทั้งหมดใน "hard" level
+	if (level === "hard" && numbers.length >= 5) {
+		// ถ้า level เป็น "hard" และมี 5 ตัวเลข ใช้ทั้งหมด
+		console.log("Using 5 numbers for hard level");
+		for (let i = 0; i < 4; i++) {
+			console.log(`Generating expressions with 5 numbers - Loop ${i + 1}/4`);
+			expressions.push(
+				`${numbers[0]} ${getRandomOperator(level)} ${
+					numbers[1]
+				} ${getRandomOperator(level)} ${numbers[2]} ${getRandomOperator(
+					level
+				)} ${numbers[3]} ${getRandomOperator(level)} ${numbers[4]}`,
+				`(${numbers[0]} ${getRandomOperator(level)} ${
+					numbers[1]
+				}) ${getRandomOperator(level)} (${numbers[2]} ${getRandomOperator(
+					level
+				)} ${numbers[3]} ${getRandomOperator(level)} ${numbers[4]})`,
+				`(${numbers[0]} ${getRandomOperator(level)} ${
+					numbers[1]
+				}) ${getRandomOperator(level)} (${numbers[2]} ${getRandomOperator(
+					level
+				)} ${numbers[3]})`,
+				`${numbers[0]} ${getRandomOperator(level)} (${
+					numbers[1]
+				} ${getRandomOperator(level)} ${numbers[2]} ${getRandomOperator(
+					level
+				)} ${numbers[3]} ${getRandomOperator(level)} ${numbers[4]})`
+			);
+		}
+	} else {
+		for (let i = 0; i < 3; i++) {
+			console.log(`Generating expressions - Loop ${i + 1}/${3}`);
+			expressions.push(
+				`${numbers[0]} ${getRandomOperator(level)} ${
+					numbers[1]
+				} ${getRandomOperator(level)} ${numbers[2]} ${getRandomOperator(
+					level
+				)} ${numbers[3]}`,
+				`(${numbers[0]} ${getRandomOperator(level)} ${
+					numbers[1]
+				}) ${getRandomOperator(level)} (${numbers[2]} ${getRandomOperator(
+					level
+				)} ${numbers[3]})`,
+				`(${numbers[0]} ${getRandomOperator(level)} ${
+					numbers[1]
+				}) ${getRandomOperator(level)} (${numbers[2]} ${getRandomOperator(
+					level
+				)} ${numbers[3]})`,
+				`${numbers[0]} ${getRandomOperator(level)} (${
+					numbers[1]
+				} ${getRandomOperator(level)} ${numbers[2]} ${getRandomOperator(
+					level
+				)} ${numbers[3]})`
+			);
+		}
 	}
+
+	// ตรวจสอบผลลัพธ์ที่ได้
+	console.log("Generated expressions:", expressions);
 
 	for (const expr of expressions) {
 		try {
@@ -373,13 +410,11 @@ const Body: React.FC<BodyProps> = ({ level, IsEnd, setIsEnd }) => {
 					/>
 					{message && <p className="text-center mb-4">{message}</p>}
 					<Button
-	onClick={checkAnswer}
-	className="w-full bg-orange-400 hover:bg-orange-500 text-white p-2 rounded"
->
-	ตอบ
-</Button>
-
-
+						onClick={checkAnswer}
+						className="w-full bg-orange-400 hover:bg-orange-500 text-white p-2 rounded"
+					>
+						ตอบ
+					</Button>
 				</CardContent>
 				<CardFooter className="flex justify-between">
 					<Button
