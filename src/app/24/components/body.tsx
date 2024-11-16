@@ -60,7 +60,6 @@ const generateExpression = (
 		// ถ้า level เป็น "hard" และมี 5 ตัวเลข ใช้ทั้งหมด
 		console.log("Using 5 numbers for hard level");
 		for (let i = 0; i < 4; i++) {
-			console.log(`Generating expressions with 5 numbers - Loop ${i + 1}/4`);
 			expressions.push(
 				`${numbers[0]} ${getRandomOperator(level)} ${
 					numbers[1]
@@ -86,7 +85,6 @@ const generateExpression = (
 		}
 	} else {
 		for (let i = 0; i < 3; i++) {
-			console.log(`Generating expressions - Loop ${i + 1}/${3}`);
 			expressions.push(
 				`${numbers[0]} ${getRandomOperator(level)} ${
 					numbers[1]
@@ -111,9 +109,6 @@ const generateExpression = (
 			);
 		}
 	}
-
-	// ตรวจสอบผลลัพธ์ที่ได้
-	console.log("Generated expressions:", expressions);
 
 	for (const expr of expressions) {
 		try {
