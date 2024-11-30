@@ -59,13 +59,7 @@ const NavRail: React.FC = () => {
         target: "",
         isAdmin: true,
       },
-      {
-        name: "ดาวน์โหลดคู่มือ",
-        path: "https://www.google.co.th",
-        icon: <FileText />,
-        target: "_blank",
-        isAdmin: true,
-      },
+     
     ],
     []
   );
